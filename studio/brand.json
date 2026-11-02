@@ -1,0 +1,20 @@
+{
+  "nome": "Area45 Marketing",
+  "site": "area45marketing.com.br",
+  "cidade": "Cascavel/PR",
+  "handle": "@area45marketing",
+  "logo": "brand/logo-area45.svg",
+  "simbolo": "brand/simbolo-area45.svg",
+  "cores": {
+    "preto": "#0A0A0A",
+    "grafite": "#141514",
+    "carvao": "#1E1F1E",
+    "linha": "#2A2B2A",
+    "cinza": "#8C8E89",
+    "branco": "#F5F5F7",
+    "limao": "#CEFA3B",
+    "alerta": "#FF4A3D"
+  },
+  "fontes": { "display": "Unbounded", "texto": "Inter" },
+  "assinatura": "A base: o trapézio limão do pé do A. Sublinha a palavra-chave, vira botão, faz as transições."
+}

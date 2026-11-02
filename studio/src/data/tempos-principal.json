@@ -1,0 +1,113 @@
+{
+ "duracao": 33.547,
+ "frases": [
+  {
+   "id": "hook1",
+   "fala": "Para de rolar!",
+   "ini": 0.25,
+   "fim": 1.072
+  },
+  {
+   "id": "hook2",
+   "fala": "Sua marca tá espantando cliente...",
+   "ini": 1.222,
+   "fim": 3.114
+  },
+  {
+   "id": "hook3",
+   "fala": "e você nem percebeu.",
+   "ini": 3.214,
+   "fim": 4.514
+  },
+  {
+   "id": "dor1",
+   "fala": "Logo torto, cor aleatória, cada post de um jeito.",
+   "ini": 4.814,
+   "fim": 7.342
+  },
+  {
+   "id": "dor2",
+   "fala": "O cliente bate o olho e pensa: amador.",
+   "ini": 7.492,
+   "fim": 9.554
+  },
+  {
+   "id": "oferta1",
+   "fala": "Na Black November da Área quarenta e cinco,",
+   "ini": 9.904,
+   "fim": 12.145
+  },
+  {
+   "id": "oferta2",
+   "fala": "você leva a identidade visual completa",
+   "ini": 12.195,
+   "fim": 14.497
+  },
+  {
+   "id": "oferta3",
+   "fala": "por quatrocentos e noventa e nove reais.",
+   "ini": 14.547,
+   "fim": 16.882
+  },
+  {
+   "id": "item1",
+   "fala": "Logo.",
+   "ini": 17.232,
+   "fim": 17.669
+  },
+  {
+   "id": "item2",
+   "fala": "Manual de identidade.",
+   "ini": 17.749,
+   "fim": 19.175
+  },
+  {
+   "id": "item3",
+   "fala": "Paleta de cores.",
+   "ini": 19.255,
+   "fim": 20.276
+  },
+  {
+   "id": "item4",
+   "fala": "Tipografia.",
+   "ini": 20.356,
+   "fim": 21.174
+  },
+  {
+   "id": "item5",
+   "fala": "Destaques do Instagram.",
+   "ini": 21.254,
+   "fim": 22.455
+  },
+  {
+   "id": "item6",
+   "fala": "Manual de aplicação.",
+   "ini": 22.535,
+   "fim": 23.726
+  },
+  {
+   "id": "item7",
+   "fala": "E a arte do seu cartão de visita.",
+   "ini": 23.806,
+   "fim": 25.54
+  },
+  {
+   "id": "preco",
+   "fala": "Tudo isso por quatrocentos e noventa e nove.",
+   "ini": 25.89,
+   "fim": 28.194
+  },
+  {
+   "id": "prazo",
+   "fala": "Só até trinta de novembro!",
+   "ini": 28.294,
+   "fim": 29.807
+  },
+  {
+   "id": "cta",
+   "fala": "Comenta eu quero, ou chama no WhatsApp.",
+   "ini": 30.107,
+   "fim": 31.947
+  }
+ ]
+}

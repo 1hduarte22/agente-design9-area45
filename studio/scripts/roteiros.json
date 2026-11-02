@@ -1,0 +1,30 @@
+{
+  "principal": [
+    {"id": "hook1", "fala": "Para de rolar!", "gap": 0.15},
+    {"id": "hook2", "fala": "Sua marca tá espantando cliente...", "gap": 0.1},
+    {"id": "hook3", "fala": "e você nem percebeu.", "gap": 0.3},
+    {"id": "dor1", "fala": "Logo torto, cor aleatória, cada post de um jeito.", "gap": 0.15},
+    {"id": "dor2", "fala": "O cliente bate o olho e pensa: amador.", "gap": 0.35},
+    {"id": "oferta1", "fala": "Na Black November da Área quarenta e cinco,", "gap": 0.05},
+    {"id": "oferta2", "fala": "você leva a identidade visual completa", "gap": 0.05},
+    {"id": "oferta3", "fala": "por quatrocentos e noventa e nove reais.", "gap": 0.35},
+    {"id": "item1", "fala": "Logo.", "gap": 0.08},
+    {"id": "item2", "fala": "Manual de identidade.", "gap": 0.08},
+    {"id": "item3", "fala": "Paleta de cores.", "gap": 0.08},
+    {"id": "item4", "fala": "Tipografia.", "gap": 0.08},
+    {"id": "item5", "fala": "Destaques do Instagram.", "gap": 0.08},
+    {"id": "item6", "fala": "Manual de aplicação.", "gap": 0.08},
+    {"id": "item7", "fala": "E a arte do seu cartão de visita.", "gap": 0.35},
+    {"id": "preco", "fala": "Tudo isso por quatrocentos e noventa e nove.", "gap": 0.1},
+    {"id": "prazo", "fala": "Só até trinta de novembro!", "gap": 0.3},
+    {"id": "cta", "fala": "Comenta eu quero, ou chama no WhatsApp.", "gap": 1.6}
+  ],
+  "ultimos-dias": [
+    {"id": "hook1", "fala": "Última chamada!", "gap": 0.15},
+    {"id": "hook2", "fala": "A Black November da Área quarenta e cinco acaba dia trinta.", "gap": 0.3},
+    {"id": "oferta1", "fala": "Identidade visual completa, do logo ao cartão de visita,", "gap": 0.05},
+    {"id": "oferta2", "fala": "por quatrocentos e noventa e nove reais.", "gap": 0.3},
+    {"id": "depois", "fala": "Depois disso, volta pro preço normal.", "gap": 0.2},
+    {"id": "cta", "fala": "Corre e comenta eu quero!", "gap": 1.4}
+  ]
+}
