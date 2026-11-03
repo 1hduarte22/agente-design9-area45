@@ -18,14 +18,15 @@ export const Palco: React.FC<{ fantasma?: string; glow?: number; tom?: string; g
       <AbsoluteFill style={{ background: `radial-gradient(55% 35% at ${glowX + Math.sin(f / 50) * 6}% ${glowY + Math.cos(f / 60) * 4}%, rgba(206,250,59,${glow}), transparent 70%)` }} />
       <AbsoluteFill style={{ background: `radial-gradient(50% 30% at 15% 85%, rgba(206,250,59,${glow * 0.35}), transparent 70%)` }} />
       {fantasma && (
-        <div style={{ position: "absolute", top: height * 0.5 - u * 22, left: -u * 10 - (f * 0.8) % (u * 160), whiteSpace: "nowrap", fontFamily: F.impacto, fontSize: u * 44, lineHeight: 1, color: "rgba(245,245,247,0.035)", letterSpacing: "0.02em" }}>
+        <div style={{ position: "absolute", top: height * 0.5 - u * 22, left: -u * 10 - (f * 0.8) % (u * 160), whiteSpace: "nowrap", fontFamily: F.impacto, fontSize: u * 44, lineHeight: 1, color: "rgba(245,245,247,0.022)", letterSpacing: "0.02em" }}>
           {`${fantasma} · ${fantasma} · ${fantasma} · `}
         </div>
       )}
-      {[0.22, 0.5, 0.78].map((y, i) => (
-        <div key={i} style={{ position: "absolute", left: 0, right: 0, top: height * y, height: 1, background: `linear-gradient(90deg, transparent, rgba(245,245,247,${0.05 + 0.03 * Math.sin(f / 20 + i)}), transparent)` }} />
+      <AbsoluteFill style={{ background: `radial-gradient(60% 28% at 50% 100%, rgba(206,250,59,${glow * 0.8}), transparent 75%)` }} />
+      {Array.from({ length: 9 }).map((_, i) => (
+        <div key={i} style={{ position: "absolute", bottom: 0, left: `${8 + i * 11}%`, width: u * (0.6 + (i % 3) * 0.5), height: height * (0.35 + 0.15 * Math.sin(f / 25 + i * 1.7)), background: `linear-gradient(0deg, rgba(206,250,59,${0.10 + 0.05 * Math.sin(f / 15 + i)}), transparent)`, filter: `blur(${u * 0.8}px)` }} />
       ))}
-      {Array.from({ length: 22 }).map((_, i) => {
+      {Array.from({ length: 14 }).map((_, i) => {
         const r = (k: string) => random(`p${i}${k}`);
         const y = ((r("y") * height - f * (0.6 + r("v") * 1.4)) % height + height) % height;
         return <div key={i} style={{ position: "absolute", left: `${r("x") * 100}%`, top: y, width: u * (0.25 + r("s") * 0.45), height: u * (0.25 + r("s") * 0.45), borderRadius: "50%", background: i % 4 === 0 ? C.limao : C.branco, opacity: 0.15 + r("o") * 0.35 }} />;
@@ -47,13 +48,13 @@ const Revela: React.FC<{ at: number; children: React.ReactNode; style?: React.CS
 };
 
 /* ── Kicker: texto pequeno em caixa alta com tracking largo e um traço antes. */
-export const Kicker: React.FC<{ text: string; at: number; cor?: string; align?: "left" | "center" }> = ({ text, at, cor = C.limao, align = "left" }) => {
+export const Kicker: React.FC<{ text: string; at: number; cor?: string; align?: "left" | "center" }> = ({ text, at, cor = C.limao, align = "center" }) => {
   const f = useCurrentFrame();
   const { u } = useScale();
   const p = progress(f, at, at + 12);
   return (
     <div style={{ display: "flex", alignItems: "center", gap: u * 2, justifyContent: align === "center" ? "center" : "flex-start", opacity: p }}>
-      <div style={{ width: u * 7 * p, height: u * 0.45, background: cor }} />
+      {align === "left" && <div style={{ width: u * 7 * p, height: u * 0.45, background: cor }} />}
       <div style={{ fontFamily: F.texto, fontWeight: 800, fontSize: u * 3.2, letterSpacing: "0.28em", color: cor, textTransform: "uppercase", whiteSpace: "nowrap" }}>{text}</div>
     </div>
   );
@@ -61,12 +62,18 @@ export const Kicker: React.FC<{ text: string; at: number; cor?: string; align?: 
 
 /* ── Título em duas linhas no padrão Area45mkt: linha 1 branca, linha 2 limão. */
 export const Titulo: React.FC<{
-  l1: string[]; a1: number[]; l2?: string[]; a2?: number[]; size?: number; size2?: number; cor1?: string; cor2?: string; align?: "left" | "center"; fonte?: "titulo" | "impacto"; base?: boolean; riscar?: number;
-}> = ({ l1, a1, l2 = [], a2 = [], size = 10, size2, cor1 = C.branco, cor2 = C.limao, align = "left", fonte = "titulo", base = false, riscar }) => {
+  l1: string[]; a1: number[]; l2?: string[]; a2?: number[]; size?: number; size2?: number; cor1?: string; cor2?: string; align?: "left" | "center"; fonte?: "titulo" | "impacto"; base?: boolean; riscar?: number; caixa?: "frase" | "alta" | "original";
+}> = ({ l1, a1, l2 = [], a2 = [], size = 10, size2, cor1 = C.branco, cor2 = C.limao, align = "center", fonte = "titulo", base = false, riscar, caixa }) => {
   const f = useCurrentFrame();
   const { u } = useScale();
   const imp = fonte === "impacto";
-  const st = (s: number, cor: string): React.CSSProperties => ({ fontFamily: imp ? F.impacto : F.titulo, fontWeight: imp ? 400 : 900, fontStyle: imp ? "normal" : "italic", fontSize: u * s, lineHeight: imp ? 0.98 : 1.04, letterSpacing: imp ? "0.01em" : "-0.01em", color: cor, textTransform: "uppercase" });
+  const modo = caixa ?? (imp ? "alta" : "frase");
+  if (modo === "frase") {
+    const low = (ws: string[]) => ws.map((x) => (/^[A-Z0-9$\/,.!?ÁÉÍÓÚÂÊÔÃÕÇ-]+$/.test(x) && !/^(R\$|AREA45|ÁREA|JU)$/.test(x) ? x.toLowerCase() : x));
+    l1 = low(l1); l2 = low(l2);
+    if (l1[0]) l1 = [l1[0][0].toUpperCase() + l1[0].slice(1), ...l1.slice(1)];
+  }
+  const st = (s: number, cor: string): React.CSSProperties => ({ fontFamily: imp ? F.impacto : F.titulo, fontWeight: imp ? 400 : 900, fontStyle: imp ? "normal" : "italic", fontSize: u * s, lineHeight: imp ? 0.98 : 1.04, letterSpacing: imp ? "0.01em" : "-0.01em", color: cor, textTransform: modo === "alta" ? "uppercase" : "none", textShadow: cor === C.limao ? `0 0 ${u * s * 0.12}px rgba(206,250,59,.45)` : undefined });
   const linha = (ws: string[], as: number[], s: number, cor: string, isL2: boolean) => (
     <div style={{ display: "flex", flexWrap: "wrap", columnGap: `${imp ? 0.22 : 0.26}em`, justifyContent: align === "center" ? "center" : "flex-start", position: "relative", ...st(s, cor) }}>
       {ws.map((w, i) => <Revela key={i} at={as[i] ?? as[as.length - 1]}>{w}</Revela>)}
@@ -189,17 +196,12 @@ export const Nota: React.FC<{ text: string; at: number; x: number; y: number; px
   );
 };
 
-/* ── Símbolo da Area45 em "3D": extrusão com camadas e giro lento. */
+/* ── Logo 3D "A" (o mesmo dos Reels Area45mkt), flutuando. */
 export const Simbolo3D: React.FC<{ size: number; at?: number }> = ({ size, at = 0 }) => {
   const f = useCurrentFrame();
   const s = useSpring(at, springs.pop);
-  const camadas = 10;
   return (
-    <div style={{ width: size, height: size, position: "relative", transform: `perspective(${size * 4}px) rotateY(${Math.sin((f - at) / 22) * 22}deg) rotateX(${8 + Math.cos(f / 30) * 6}deg) scale(${s})` }}>
-      {Array.from({ length: camadas }).map((_, i) => (
-        <Img key={i} src={staticFile(brand.simbolo)} style={{ position: "absolute", inset: 0, width: size, height: size, borderRadius: size * 0.22, transform: `translateZ(${-i * size * 0.012}px) translate(${i * 0.6}px, ${i * 0.9}px)`, filter: i === 0 ? `drop-shadow(0 0 ${size * 0.12}px rgba(206,250,59,.45))` : "brightness(.35)" }} />
-      )).reverse()}
-    </div>
+    <Img src={staticFile("brand/3d/logo-a-3d.png")} style={{ width: size, height: size, opacity: f >= at ? 1 : 0, transform: `translateY(${Math.sin((f - at) / 18) * size * 0.04}px) rotate(${Math.sin((f - at) / 26) * 4}deg) scale(${0.6 + 0.4 * s})`, filter: `drop-shadow(0 ${size * 0.08}px ${size * 0.2}px rgba(206,250,59,.35))` }} />
   );
 };
 

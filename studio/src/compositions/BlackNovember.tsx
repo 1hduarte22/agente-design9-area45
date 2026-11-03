@@ -203,12 +203,12 @@ const Oferta: React.FC = () => {
         <Kicker text="Quanto custa a virada?" at={a} />
         <div style={{ height: u * 2.5 }} />
         <Titulo l1={["ESSA", "VIRADA"]} a1={[a, w("oferta1", 1)]} l2={["SAI", "POR"]} a2={[w("oferta1", 2), c0]} size={9} size2={9} />
-        <div style={{ display: "flex", alignItems: "flex-start", marginTop: u * 3, filter: rgbSplit(f, [K.preco], u * 1.2), opacity: f >= c0 ? 1 : 0, transform: `scale(${f >= K.preco ? 1.18 - 0.18 * s : 1})`, transformOrigin: "left center" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "center", marginTop: u * 3, filter: rgbSplit(f, [K.preco], u * 1.2), opacity: f >= c0 ? 1 : 0, transform: `scale(${f >= K.preco ? 1.18 - 0.18 * s : 1})`, textShadow: f >= K.preco ? `0 0 ${u * 5}px rgba(206,250,59,.4)` : undefined }}>
           <span style={{ fontFamily: F.impacto, fontSize: u * 9, color: C.limao, marginTop: u * 4, marginRight: u * 1.5 }}>R$</span>
           <span style={{ fontFamily: F.impacto, fontSize: u * 34, lineHeight: 0.9, color: f >= K.preco ? C.limao : C.branco, fontVariantNumeric: "tabular-nums", letterSpacing: "0.01em" }}>{cnt}</span>
           <span style={{ fontFamily: F.impacto, fontSize: u * 9, color: C.limao, marginTop: u * 4 }}>,00</span>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: u * 4, marginTop: u * 4 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: u * 4, marginTop: u * 4 }}>
           <div style={{ opacity: f >= K.black ? 1 : 0, transform: `rotate(${-4 * sb}deg) scale(${0.7 + 0.3 * sb})`, background: C.limao, color: C.preto, padding: `${u * 1.6}px ${u * 3}px`, borderRadius: u * 1.5, fontFamily: F.titulo, fontWeight: 900, fontStyle: "italic", fontSize: u * 5.6, lineHeight: 1, boxShadow: "0 18px 40px rgba(206,250,59,.25)" }}>BLACK<br />NOVEMBER</div>
           <Simbolo3D size={u * 20} at={w("oferta1", 14)} />
         </div>
@@ -224,7 +224,7 @@ const Itens: React.FC = () => {
   const { u, vertical } = useScale();
   const ats = K.itens;
   const atual = Math.max(0, ats.filter((x) => f >= x).length - 1);
-  const nome = ITENS[atual].nome.toUpperCase().split(" ");
+  const nome = ITENS[atual].nome.split(" ");
   const meio = Math.ceil(nome.length / 2);
   return (
     <AbsoluteFill>
@@ -236,7 +236,7 @@ const Itens: React.FC = () => {
         </div>
         <div style={{ height: u * 2 }} />
         <div style={{ minHeight: u * 22 }} key={atual}>
-          <Titulo l1={nome.slice(0, meio)} a1={nome.slice(0, meio).map((_, i) => ats[atual] + i * 2)} l2={nome.slice(meio)} a2={nome.slice(meio).map((_, i) => ats[atual] + 3 + i * 2)} size={8.6} size2={8.6} />
+          <Titulo l1={nome.slice(0, meio)} a1={nome.slice(0, meio).map((_, i) => ats[atual] + i * 2)} l2={nome.slice(meio)} a2={nome.slice(meio).map((_, i) => ats[atual] + 3 + i * 2)} size={8.6} size2={8.6} caixa="original" />
         </div>
         <div style={{ position: "relative", marginTop: u * 3, height: u * (vertical ? 36 : 30) }}>
           {[2, 1].map((k) => (
@@ -271,16 +271,16 @@ const Prazo: React.FC = () => {
         <Kicker text="Atenção ao prazo" at={p} cor={C.preto} />
         <div style={{ height: u * 2.5 }} />
         <Titulo l1={["MAS", "É", "SÓ", "ATÉ"]} a1={[p, w("prazo", 1), w("prazo", 2), w("prazo", 3)]} size={10} cor1={C.preto} />
-        <div style={{ display: "flex", alignItems: "center", gap: u * 5, marginTop: u * 3 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: u * 5, marginTop: u * 3 }}>
           <div style={{ perspective: u * 200 }}>
             <div style={{ transform: `rotateX(${flip}deg) scale(${1.2 - 0.2 * s2}) rotate(${-4 * s2}deg)`, transformOrigin: "top", opacity: f >= cal - 6 ? 1 : 0, background: C.preto, borderRadius: u * 4, overflow: "hidden", width: u * 34, boxShadow: "0 30px 60px rgba(0,0,0,.35)" }}>
               <div style={{ background: C.grafite, color: C.limao, fontFamily: F.texto, fontWeight: 800, fontSize: u * 3.6, textAlign: "center", padding: u * 1.6, letterSpacing: "0.2em" }}>NOVEMBRO</div>
               <div style={{ color: C.branco, fontFamily: F.impacto, fontSize: u * 22, textAlign: "center", lineHeight: 1.1 }}>30</div>
             </div>
           </div>
-          <Titulo l1={["DE"]} a1={[w("prazo", 5)]} l2={["NOVEMBRO."]} a2={[w("prazo", 6)]} size={6} size2={7} cor1={C.preto} cor2={C.preto} fonte="impacto" />
+          <Titulo l1={["DE"]} a1={[w("prazo", 5)]} l2={["NOVEMBRO."]} a2={[w("prazo", 6)]} size={6} size2={7} cor1={C.preto} cor2={C.preto} fonte="impacto" align="left" />
         </div>
-        <div style={{ marginTop: u * 3 }}><Pilula text="Depois disso, acabou." at={cal + 14} tone="escuro" /></div>
+        <div style={{ marginTop: u * 3, alignSelf: "center" }}><Pilula text="Depois disso, acabou." at={cal + 14} tone="escuro" /></div>
       </Tela>
       <Flash at={cal} color={C.branco} max={0.5} />
     </AbsoluteFill>
@@ -302,10 +302,10 @@ const CTA: React.FC = () => {
       <Tela justify="flex-start" style={{ alignItems: "stretch" }}>
         <Kicker text="Quer a sua?" at={a} />
         <div style={{ height: u * 2.5 }} />
-        <Titulo l1={["COMENTA"]} a1={[a]} l2={["EU", "QUERO"]} a2={[w("cta", 1), w("cta", 2)]} size={11} size2={14} />
+        <Titulo l1={["COMENTA"]} a1={[a]} l2={["EU", "QUERO"]} a2={[w("cta", 1), w("cta", 2)]} size={11} size2={14} caixa="alta" />
         <div style={{ display: "flex", gap: u * 4, marginTop: u * 4, alignItems: "flex-start" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: u * 2.5, flex: 1, paddingTop: u * 2 }}>
-            <Titulo l1={["QUE", "A", "GENTE", "TE"]} a1={[w("cta", 3), w("cta", 4), w("cta", 5), dm]} l2={["CHAMA", "NO", "DIRECT"]} a2={[w("cta", 7), w("cta", 8), w("cta", 9)]} size={4.8} size2={5.6} />
+            <Titulo l1={["QUE", "A", "GENTE", "TE"]} a1={[w("cta", 3), w("cta", 4), w("cta", 5), dm]} l2={["CHAMA", "NO", "DIRECT"]} a2={[w("cta", 7), w("cta", 8), w("cta", 9)]} size={4.8} size2={5.6} align="left" />
             <Logo width={u * 30} delay={a + 18} />
             <Pilula text={brand.handle} at={a + 24} size={3.6} />
           </div>
