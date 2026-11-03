@@ -1,0 +1,22 @@
+{
+  "principal": [
+    {"id": "hook1", "fala": "Você tá perdendo cliente...", "gap": 0.12},
+    {"id": "hook2", "fala": "e nem sabe por quê.", "gap": 0.3},
+    {"id": "olha", "fala": "Olha essa marca.", "gap": 0.35},
+    {"id": "dor1", "fala": "Logo torto, cada post de um jeito, cor pra todo lado.", "gap": 0.25},
+    {"id": "dor2", "fala": "Parece amador. E ninguém compra de quem parece amador.", "gap": 0.45},
+    {"id": "virada", "fala": "Agora olha ela profissional.", "gap": 0.6},
+    {"id": "oferta1", "fala": "Essa virada sai por quatrocentos e noventa e nove reais, na Black November da Área quarenta e cinco.", "gap": 0.3},
+    {"id": "itens", "fala": "Você leva o logo, o manual de identidade, a paleta de cores, a tipografia, os destaques do Instagram, o manual de aplicação e a arte do seu cartão de visita.", "gap": 0.35},
+    {"id": "prazo", "fala": "Mas é só até trinta de novembro.", "gap": 0.3},
+    {"id": "cta", "fala": "Comenta eu quero, que a gente te chama no direct.", "gap": 1.5}
+  ],
+  "ultimos-dias": [
+    {"id": "hook1", "fala": "Últimos dias!", "gap": 0.2},
+    {"id": "hook2", "fala": "A Black November da Área quarenta e cinco termina dia trinta.", "gap": 0.3},
+    {"id": "oferta1", "fala": "Logo, manual, paleta, tipografia, destaques e cartão de visita.", "gap": 0.15},
+    {"id": "oferta2", "fala": "A identidade completa por quatrocentos e noventa e nove reais.", "gap": 0.3},
+    {"id": "depois", "fala": "Passou do dia trinta, acabou.", "gap": 0.25},
+    {"id": "cta", "fala": "Comenta eu quero e garante a sua.", "gap": 1.4}
+  ]
+}

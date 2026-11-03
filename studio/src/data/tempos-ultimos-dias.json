@@ -1,0 +1,45 @@
+{
+ "duracao": 19.72,
+ "frases": [
+  {
+   "id": "hook1",
+   "fala": "Últimos dias!",
+   "ini": 0.03,
+   "fim": 1.05
+  },
+  {
+   "id": "hook2",
+   "fala": "A Black November da Área quarenta e cinco termina dia trinta.",
+   "ini": 1.15,
+   "fim": 4.37
+  },
+  {
+   "id": "oferta1",
+   "fala": "Logo, manual, paleta, tipografia, destaques e cartão de visita.",
+   "ini": 4.69,
+   "fim": 9.71
+  },
+  {
+   "id": "oferta2",
+   "fala": "A identidade completa por quatrocentos e noventa e nove reais.",
+   "ini": 9.87,
+   "fim": 13.35
+  },
+  {
+   "id": "depois",
+   "fala": "Passou do dia trinta, acabou.",
+   "ini": 13.91,
+   "fim": 15.79,
+   "palavras": {
+    "4": 15.24
+   }
+  },
+  {
+   "id": "cta",
+   "fala": "Comenta eu quero e garante a sua.",
+   "ini": 16.2,
+   "fim": 18.36
+  }
+ ],
+ "fonte": "ElevenLabs Marcio (manual), tempos por detecção de silêncio"
+}
