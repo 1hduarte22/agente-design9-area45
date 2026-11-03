@@ -1,65 +1,72 @@
 {
- "duracao": 36.443,
+ "duracao": 36.459999999999994,
  "frases": [
   {
    "id": "hook1",
    "fala": "Você tá perdendo cliente...",
-   "ini": 0.12,
-   "fim": 2.043
+   "ini": 0.05,
+   "fim": 1.62
   },
   {
    "id": "hook2",
    "fala": "e nem sabe por quê.",
-   "ini": 2.163,
-   "fim": 3.529
+   "ini": 1.82,
+   "fim": 3.08
   },
   {
    "id": "olha",
    "fala": "Olha essa marca.",
-   "ini": 3.829,
-   "fim": 4.994
+   "ini": 3.62,
+   "fim": 4.36
   },
   {
    "id": "dor1",
    "fala": "Logo torto, cada post de um jeito, cor pra todo lado.",
-   "ini": 5.344,
-   "fim": 8.309
+   "ini": 4.71,
+   "fim": 8.45
   },
   {
    "id": "dor2",
    "fala": "Parece amador. E ninguém compra de quem parece amador.",
-   "ini": 8.559,
-   "fim": 11.738
+   "ini": 8.77,
+   "fim": 11.86,
+   "palavras": {
+    "2": 9.92
+   }
   },
   {
    "id": "virada",
    "fala": "Agora olha ela profissional.",
-   "ini": 12.188,
-   "fim": 13.916
+   "ini": 12.48,
+   "fim": 15.09,
+   "palavras": {
+    "3": 13.91
+   }
   },
   {
    "id": "oferta1",
    "fala": "Essa virada sai por quatrocentos e noventa e nove reais, na Black November da Área quarenta e cinco.",
-   "ini": 14.516,
-   "fim": 20.041
+   "ini": 15.68,
+   "fim": 20.49
   },
   {
    "id": "itens",
    "fala": "Você leva o logo, o manual de identidade, a paleta de cores, a tipografia, os destaques do Instagram, o manual de aplicação e a arte do seu cartão de visita.",
-   "ini": 20.341,
-   "fim": 29.557
+   "ini": 20.95,
+   "fim": 29.91
   },
   {
    "id": "prazo",
    "fala": "Mas é só até trinta de novembro.",
-   "ini": 29.907,
-   "fim": 31.934
+   "ini": 30.38,
+   "fim": 32.09
   },
   {
    "id": "cta",
    "fala": "Comenta eu quero, que a gente te chama no direct.",
-   "ini": 32.234,
-   "fim": 34.943
+   "ini": 32.44,
+   "fim": 34.98
   }
- ]
+ ],
+ "fonte": "ElevenLabs Marcio (manual), tempos por detecção de silêncio"
 }

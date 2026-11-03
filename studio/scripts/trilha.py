@@ -82,6 +82,7 @@ def render(rid, T, cues):
         if not isinstance(x, str): return x
         if x.startswith('w:'):  # 'w:frase:n' = início estimado da n-ésima palavra (mesma regra de src/lib/tempos.ts)
             _, fid, n = x.split(':'); f = ph[fid]; ws = f['fala'].split()
+            if n in f.get('palavras', {}): return f['palavras'][n]
             tot = len(''.join(ws)); antes = len(''.join(ws[:int(n)]))
             return round((f['ini'] + (f['fim'] - f['ini']) * antes / tot * 0.95) * 30) / 30
         return ph[x]['ini']
