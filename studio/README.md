@@ -16,7 +16,12 @@ npx tsc --noEmit                    # checagem antes de renderizar
 3. **Trilha e efeitos**: `python3 scripts/trilha.py` sintetiza uma trilha phonk/funk eletrônica original a 125 BPM e os SFX (impactos, whoosh, riser, ticks, glitch) nos tempos de cada frase. Sem música de terceiros, sem licença a pagar.
 4. As composições leem os tempos: se o texto mudar, rode os dois scripts e as cenas se reposicionam sozinhas.
 
-**Trocar por uma locução gravada ou do ElevenLabs:** salve o arquivo como `public/audio/narracao-<id>.wav` e ajuste `ini`/`fim` de cada frase em `src/data/tempos-<id>.json` (os tempos podem ser lidos no Remotion Studio ou num editor de áudio).
+**Locução gravada ou do ElevenLabs (v5, atual):** salve o arquivo como `public/audio/narracao-<id>.wav` e transcreva palavra por palavra com faster-whisper (`word_timestamps=True`) em `src/data/palavras-<id>.json`. As composições v5 usam esses tempos (em segundos) para cortar as cenas e revelar cada palavra; `scripts/trilha.py` usa os mesmos segundos para a trilha e os efeitos.
+
+## Texto na tela (v5)
+
+- Uma frase curta por cena. As quebras de linha são escritas à mão, por sentido (`Frase` em `src/components/v5.tsx`).
+- Uma linha nunca quebra sozinha: se não couber na largura segura, a fonte encolhe. A largura é calculada pelas métricas reais das fontes (`src/data/larguras-fontes.json`), então o resultado é igual em todo render.
 
 ## Render
 

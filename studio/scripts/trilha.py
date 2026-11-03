@@ -102,25 +102,25 @@ def render(rid, T, cues):
         x = np.tanh(x / max(np.max(np.abs(x)), 1e-6) * 1.3) ; x = x / np.max(np.abs(x)) * pk
         sf.write(f'public/audio/{nome}-{rid}.wav', np.stack([x, x], 1), SR)
     print(rid, 'ok', round(dur, 2))
-ITENS_W = [3, 5, 9, 13, 15, 19, 24]
+# v5: marcas em segundos, tiradas da transcrição palavra por palavra (src/data/palavras-*.json)
 CUES = {
   'principal': {
-    'secoes': [(0, 'olha', 'full'), ('olha', 'virada', 'dark', 'abafado'), ('virada', 'w:virada:3', 'build'),
-               ('w:virada:3', 'cta', 'full'), ('cta', 'FIM', 'full', 'abafado')],
-    'sfx': [('boom', 0.0, 1.0), ('glitch', 0.27, 0.6), ('glitch', 'hook2', 0.8), ('whoosh_pre', 'olha'), ('boom', 'olha', 0.4),
-            ('tick', 'w:dor1:0', 0.9), ('tick', 'w:dor1:2', 0.9), ('tick', 'w:dor1:7', 0.9),
-            ('boom', 'w:dor2:1', 0.9), ('glitch', 'w:dor2:1', 0.7), ('boom', 'w:dor2:8', 0.5),
-            ('glitch', 'virada', 0.5), ('riser', 'virada', 'w:virada:3'), ('boom', 'w:virada:3', 1.0),
-            ('whoosh_pre', 'oferta1'), ('riser', 'w:oferta1:3', 'w:oferta1:8'), ('boom', 'w:oferta1:8', 1.0), ('boom', 'w:oferta1:11', 0.45)] +
-           [('tick', f'w:itens:{n}', 0.9) for n in ITENS_W] +
-           [('whoosh_pre', 'prazo'), ('boom', 'w:prazo:4', 0.9), ('whoosh_pre', 'cta'), ('boom', 'cta', 0.5), ('boom', 'FIMHIT', 0.8)]},
+    'secoes': [(0, 3.54, 'full'), (3.54, 12.38, 'dark', 'abafado'), (12.38, 13.96, 'build'), (13.96, 33.36, 'full'), (33.36, 'FIM', 'full', 'abafado')],
+    'sfx': [('boom', 0.0, 1.0), ('glitch', 0.96, 0.6), ('whoosh_pre', 1.56), ('glitch', 1.56, 0.5), ('boom', 3.54, 0.4),
+            ('tick', 4.66, 0.9), ('boom', 5.0, 0.35), ('whoosh_pre', 5.82)] + [('tick', 5.82 + k * 0.067, 0.5) for k in range(9)] +
+           [('tick', 7.36, 0.9), ('boom', 8.94, 0.95), ('glitch', 8.94, 0.7), ('whoosh_pre', 9.44), ('boom', 10.3, 0.4),
+            ('tick', 11.38, 0.8), ('glitch', 11.75, 0.5), ('riser', 12.38, 13.96), ('boom', 13.96, 1.0),
+            ('whoosh_pre', 15.64), ('riser', 16.66, 17.15), ('boom', 17.15, 1.0), ('boom', 18.6, 0.45), ('whoosh_pre', 20.86)] +
+           [('tick', x, 0.9) for x in (21.46, 22.06, 23.32, 24.42, 25.62, 27.0, 28.4)] +
+           [('whoosh', 22.0, 0.35), ('whoosh', 24.4, 0.35), ('whoosh', 26.92, 0.35),
+            ('whoosh_pre', 30.3), ('tick', 30.92, 0.8), ('boom', 31.1, 0.9), ('whoosh_pre', 32.36), ('boom', 32.74, 0.6), ('whoosh_pre', 33.36), ('boom', 'FIMHIT', 0.8)]},
   'ultimos-dias': {
-    'secoes': [(0, 'oferta1', 'full'), ('oferta1', 'w:oferta2:8', 'build'), ('w:oferta2:8', 'depois', 'full'),
-               ('depois', 'cta', 'dark', 'abafado'), ('cta', 'FIM', 'full')],
-    'sfx': [('boom', 0.0, 1.0), ('glitch', 0.13, 0.6), ('whoosh_pre', 'hook2'), ('boom', 'w:hook2:10', 0.6), ('whoosh_pre', 'oferta1')] +
-           [('tick', f'w:oferta1:{n}', 0.8) for n in range(7)] +
-           [('riser', 'w:oferta2:3', 'w:oferta2:8'), ('boom', 'w:oferta2:8', 1.0), ('glitch', 'w:depois:4', 0.8), ('boom', 'w:depois:4', 0.6),
-            ('whoosh_pre', 'cta'), ('boom', 'cta', 0.8), ('boom', 'FIMHIT', 0.7)]},
+    'secoes': [(0, 4.62, 'full'), (4.62, 10.04, 'full'), (10.04, 11.9, 'build'), (11.9, 13.62, 'full'), (13.62, 16.12, 'dark', 'abafado'), (16.12, 'FIM', 'full')],
+    'sfx': [('boom', 0.0, 1.0), ('glitch', 0.13, 0.6), ('boom', 0.46, 0.5), ('whoosh_pre', 1.38), ('boom', 1.5, 0.4), ('boom', 3.76, 0.8)] +
+           [('tick', x, 0.85) for x in (4.62, 5.5, 6.14, 7.08, 7.98, 8.7)] +
+           [('whoosh_pre', 10.04)] + [('tick', 10.19 + k * 0.12, 0.4) for k in range(7)] +
+           [('riser', 11.08, 11.9), ('boom', 11.9, 1.0), ('whoosh_pre', 13.62), ('glitch', 14.6, 0.6), ('glitch', 15.22, 0.8), ('boom', 15.22, 0.9),
+            ('whoosh_pre', 16.12), ('boom', 16.54, 0.6), ('whoosh_pre', 17.14), ('boom', 'FIMHIT', 0.7)]},
 }
 for rid, cues in CUES.items():
     T = json.load(open(f'src/data/tempos-{rid}.json'))
