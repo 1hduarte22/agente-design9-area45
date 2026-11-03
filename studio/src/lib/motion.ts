@@ -13,13 +13,25 @@ export const springs = {
 export const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 export const progress = (f: number, a: number, b: number, e = ease.out) => interpolate(f, [a, b], [0, 1], { ...clamp, easing: e });
 
-/** u = 1% da largura (1080 → 10.8px). Formatos: 9x16 e 4x5 têm a mesma largura. */
+/** u = 1% da largura (1080 → 10.8px). Formatos: 9x16 e 4x5 têm a mesma largura.
+ *  Margens seguras (política Area45, ver README "Margens seguras"):
+ *  9:16 → topo 14% (270px), base 35% (672px), laterais 10u (108px) para texto.
+ *  4:5  → topo/base 5.5% (~74px), laterais 6u. */
 export const useScale = () => {
   const { width, height } = useVideoConfig();
   const u = width / 100;
   const vertical = height / width > 1.5;
-  return { u, width, height, vertical, safeTop: vertical ? height * 0.13 : height * 0.06, safeBottom: vertical ? height * 0.21 : height * 0.08 };
+  return {
+    u, width, height, vertical,
+    safeTop: vertical ? height * 0.14 : height * 0.055,
+    safeBottom: vertical ? height * 0.35 : height * 0.055,
+    safeSide: vertical ? u * 10 : u * 6,
+  };
 };
+
+/** Pulso no tempo da trilha (125 BPM = 14,4 frames). Retorna 0..1, pico na batida. */
+export const BEAT = (30 * 60) / 125;
+export const pulso = (frame: number, decay = 3) => Math.exp(-((frame % BEAT) / decay));
 
 export const useSpring = (delay: number, config = springs.pop) => {
   const frame = useCurrentFrame();

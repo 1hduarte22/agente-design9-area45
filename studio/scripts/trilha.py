@@ -78,7 +78,13 @@ def beat(buf, a, b, modo):
         k += 1
 def render(rid, T, cues):
     dur = T['duracao']; ph = {f['id']: f for f in T['frases']}
-    at = lambda x: ph[x]['ini'] if isinstance(x, str) else x
+    def at(x):
+        if not isinstance(x, str): return x
+        if x.startswith('w:'):  # 'w:frase:n' = início estimado da n-ésima palavra (mesma regra de src/lib/tempos.ts)
+            _, fid, n = x.split(':'); f = ph[fid]; ws = f['fala'].split()
+            tot = len(''.join(ws)); antes = len(''.join(ws[:int(n)]))
+            return round((f['ini'] + (f['fim'] - f['ini']) * antes / tot * 0.95) * 30) / 30
+        return ph[x]['ini']
     mus, sfx = np.zeros(int((dur + 0.5) * SR)), np.zeros(int((dur + 0.5) * SR))
     for a, b, modo, *opt in cues['secoes']:
         sec = np.zeros_like(mus); beat(sec, at(a), at(b), modo)
@@ -95,19 +101,25 @@ def render(rid, T, cues):
         x = np.tanh(x / max(np.max(np.abs(x)), 1e-6) * 1.3) ; x = x / np.max(np.abs(x)) * pk
         sf.write(f'public/audio/{nome}-{rid}.wav', np.stack([x, x], 1), SR)
     print(rid, 'ok', round(dur, 2))
+ITENS_W = [3, 5, 9, 13, 15, 19, 24]
 CUES = {
   'principal': {
-    'secoes': [(0, 'dor1', 'full'), ('dor1', 'oferta1', 'dark', 'abafado'), ('oferta1', 'oferta3', 'build'),
-               ('oferta3', 'cta', 'full'), ('cta', 'FIM', 'full', 'abafado')],
-    'sfx': [('boom', 0.0, 1.0), ('glitch', 'hook2', 0.8), ('boom', 'hook3', 0.5), ('glitch', 'dor1'), ('glitch', 'dor2', 0.7),
-            ('whoosh_pre', 'oferta1'), ('riser', 'oferta2', 'oferta3'), ('boom', 'oferta3', 1.0)] +
-           [('tick', f'item{i}', 0.9) for i in range(1, 8)] +
-           [('whoosh_pre', 'preco'), ('boom', 'preco', 0.9), ('boom', 'prazo', 0.5), ('whoosh_pre', 'cta'), ('boom', 'FIMHIT', 0.8)]},
+    'secoes': [(0, 'olha', 'full'), ('olha', 'virada', 'dark', 'abafado'), ('virada', 'w:virada:3', 'build'),
+               ('w:virada:3', 'cta', 'full'), ('cta', 'FIM', 'full', 'abafado')],
+    'sfx': [('boom', 0.0, 1.0), ('glitch', 0.27, 0.6), ('glitch', 'hook2', 0.8), ('whoosh_pre', 'olha'), ('boom', 'olha', 0.4),
+            ('tick', 'w:dor1:0', 0.9), ('tick', 'w:dor1:2', 0.9), ('tick', 'w:dor1:7', 0.9),
+            ('boom', 'w:dor2:1', 0.9), ('glitch', 'w:dor2:1', 0.7), ('boom', 'w:dor2:8', 0.5),
+            ('glitch', 'virada', 0.5), ('riser', 'virada', 'w:virada:3'), ('boom', 'w:virada:3', 1.0),
+            ('whoosh_pre', 'oferta1'), ('riser', 'w:oferta1:3', 'w:oferta1:8'), ('boom', 'w:oferta1:8', 1.0), ('boom', 'w:oferta1:11', 0.45)] +
+           [('tick', f'w:itens:{n}', 0.9) for n in ITENS_W] +
+           [('whoosh_pre', 'prazo'), ('boom', 'w:prazo:4', 0.9), ('whoosh_pre', 'cta'), ('boom', 'cta', 0.5), ('boom', 'FIMHIT', 0.8)]},
   'ultimos-dias': {
-    'secoes': [(0, 'oferta1', 'full'), ('oferta1', 'oferta2', 'build'), ('oferta2', 'depois', 'full'),
+    'secoes': [(0, 'oferta1', 'full'), ('oferta1', 'w:oferta2:8', 'build'), ('w:oferta2:8', 'depois', 'full'),
                ('depois', 'cta', 'dark', 'abafado'), ('cta', 'FIM', 'full')],
-    'sfx': [('boom', 0.0, 1.0), ('glitch', 'hook1', 0.6), ('whoosh_pre', 'hook2'), ('riser', 'oferta1', 'oferta2'),
-            ('boom', 'oferta2', 1.0), ('glitch', 'depois', 0.8), ('whoosh_pre', 'cta'), ('boom', 'cta', 0.9), ('boom', 'FIMHIT', 0.7)]},
+    'sfx': [('boom', 0.0, 1.0), ('glitch', 0.13, 0.6), ('whoosh_pre', 'hook2'), ('boom', 'w:hook2:10', 0.6), ('whoosh_pre', 'oferta1')] +
+           [('tick', f'w:oferta1:{n}', 0.8) for n in range(7)] +
+           [('riser', 'w:oferta2:3', 'w:oferta2:8'), ('boom', 'w:oferta2:8', 1.0), ('glitch', 'w:depois:4', 0.8), ('boom', 'w:depois:4', 0.6),
+            ('whoosh_pre', 'cta'), ('boom', 'cta', 0.8), ('boom', 'FIMHIT', 0.7)]},
 }
 for rid, cues in CUES.items():
     T = json.load(open(f'src/data/tempos-{rid}.json'))

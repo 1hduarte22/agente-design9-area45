@@ -34,9 +34,9 @@ export const Fundo: React.FC<{ glow?: number; grid?: boolean; tone?: string }> =
 
 /** Coluna centralizada dentro da área segura do formato. */
 export const Tela: React.FC<{ children: React.ReactNode; gap?: number; justify?: React.CSSProperties["justifyContent"]; style?: React.CSSProperties }> = ({ children, gap = 0, justify = "center", style }) => {
-  const { u, safeTop, safeBottom } = useScale();
+  const { u, safeTop, safeBottom, safeSide } = useScale();
   return (
-    <AbsoluteFill style={{ paddingTop: safeTop, paddingBottom: safeBottom, paddingLeft: u * 7, paddingRight: u * 7, display: "flex", flexDirection: "column", justifyContent: justify, alignItems: "center", gap: gap * u, ...style }}>
+    <AbsoluteFill style={{ paddingTop: safeTop, paddingBottom: safeBottom, paddingLeft: safeSide, paddingRight: safeSide, display: "flex", flexDirection: "column", justifyContent: justify, alignItems: "center", gap: gap * u, ...style }}>
       {children}
     </AbsoluteFill>
   );
@@ -119,7 +119,7 @@ export const WipeBase: React.FC<{ at: number; dur?: number }> = ({ at, dur = 12 
   );
 };
 
-/** Barra de progresso do Reels (retenção): fina, limão, embaixo da área segura superior. */
+/** Barra de progresso (decorativa, não crítica): fica logo acima da área segura superior. */
 export const Progresso: React.FC<{ total: number }> = ({ total }) => {
   const f = useCurrentFrame();
   const { u, safeTop } = useScale();
@@ -129,3 +129,5 @@ export const Progresso: React.FC<{ total: number }> = ({ total }) => {
     </div>
   );
 };
+
+export * from "./fx";

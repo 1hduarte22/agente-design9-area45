@@ -26,7 +26,7 @@ export const Kit: React.FC<{ atual: number; desde: number; altura: number }> = (
   const f = useCurrentFrame();
   const s = useSpring(desde, springs.pop);
   const p = progress(f, desde, desde + 14);
-  const box: React.CSSProperties = { width: u * 84, height: u * altura, borderRadius: u * 4, background: C.grafite, border: `1px solid ${C.linha}`, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", position: "relative", transform: `scale(${0.92 + 0.08 * s})` };
+  const box: React.CSSProperties = { width: u * 80, height: u * altura, borderRadius: u * 4, background: C.grafite, border: `1px solid ${C.linha}`, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", position: "relative", transform: `scale(${0.92 + 0.08 * s})` };
   const ju = (size: number, color = C.branco) => (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: size * 0.08 }}>
       <div style={{ fontFamily: brand.font.display, fontWeight: 900, fontSize: size, color, letterSpacing: "-0.06em", lineHeight: 0.9 }}>JU</div>
@@ -53,7 +53,7 @@ export const Kit: React.FC<{ atual: number; desde: number; altura: number }> = (
     </div>,
     // 4 tipografia
     <div style={{ display: "flex", alignItems: "baseline", gap: u * 4 }}>
-      <div style={{ fontFamily: brand.font.display, fontWeight: 900, fontSize: u * 22, color: C.branco, lineHeight: 1 }}>Aa</div>
+      <div style={{ fontFamily: brand.font.display, fontWeight: 900, fontSize: u * Math.min(22, altura * 0.6), color: C.branco, lineHeight: 1 }}>Aa</div>
       <div style={{ display: "flex", flexDirection: "column", gap: u, opacity: p }}>
         <div style={{ fontFamily: brand.font.display, fontWeight: 800, fontSize: u * 4, color: C.limao }}>Título</div>
         <div style={{ fontFamily: brand.font.text, fontWeight: 600, fontSize: u * 3.4, color: C.cinza }}>Texto de apoio</div>

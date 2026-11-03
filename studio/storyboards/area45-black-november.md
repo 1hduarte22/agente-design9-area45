@@ -7,30 +7,32 @@
 Logo e símbolo oficiais em `public/brand/`. Cores: preto #0A0A0A, grafite #141514, branco #F5F5F7, limão #CEFA3B (alerta #FF4A3D só para a dor). Tipos: Unbounded (títulos, caixa alta, larga como o logo) e Inter (apoio).
 Assinatura: **a base**, o trapézio limão que fica no pé do A do logo. Ela sublinha a palavra-chave, faz a transição (sobe e cobre a tela) e é o pedestal do preço.
 
-## Reels principal · "Sua marca tá espantando cliente" (~33 s)
+## Margens seguras
 
-| Tempo | Narração | Tela | Movimento | Som |
-|---|---|---|---|---|
-| 0 a 1,2 s | "Para de rolar!" | Feed falso rolando com blur trava no frame 7; "PARA DE **ROLAR!**" | Scroll rápido + parada seca, palavras batem (escala 1,35 → 1) | Impacto grave no frame 0, batida já cheia |
-| 1,2 a 3,2 s | "Sua marca tá espantando cliente..." | "SUA MARCA TÁ / **ESPANTANDO** / CLIENTE" + notificações: deixou de seguir, visualizou e não respondeu, fechou com o concorrente | Palavras na fala, notificações pulam | Glitch |
-| 3,2 a 4,8 s | "e você nem percebeu." | "E VOCÊ NEM **PERCEBEU.**" | Zoom lento, flash | Impacto |
-| 4,8 a 7,5 s | "Logo torto, cor aleatória, cada post de um jeito." | Marca improvisada ("Loja da Ju ★", Comic/Lobster, degradê) com etiquetas ✕ LOGO TORTO, ✕ COR ALEATÓRIA, ✕ CADA POST DE UM JEITO | Etiquetas entram na fala, glitch | Batida cai para meio-tempo abafado |
-| 7,5 a 9,9 s | "O cliente bate o olho e pensa: amador." | Carimbo vermelho **AMADOR.** | Carimbo bate, tela treme, a marca perde a cor | Impacto + glitch |
-| 9,9 a 14,5 s | "Na Black November da Área 45, você leva a identidade visual completa" | Base limão sobe e cobre a tela → logo Area45, "BLACK / NOVEMBER" (contorno) → "IDENTIDADE VISUAL **COMPLETA**" | Wipe da base, letras batem | Whoosh, build de palmas + riser |
-| 14,5 a 17,2 s | "por quatrocentos e noventa e nove reais." | "POR APENAS R$ **499**,00" sobre a base | Contador 0 → 499 fecha no drop | Drop da trilha + impacto |
-| 17,2 a 25,9 s | "Logo. Manual de identidade. Paleta… cartão de visita." | Checklist dos 7 itens + mockup do item atual (marca exemplo "JU") | Cada item entra na hora em que é falado | Tick por item |
-| 25,9 a 28,3 s | "Tudo isso por quatrocentos e noventa e nove." | "TUDO ISSO POR R$ 499,00" + "7 entregas · 1 pacote" | Preço bate | Impacto |
-| 28,3 a 30,1 s | "Só até trinta de novembro!" | Tela limão, calendário "NOVEMBRO 30" | Calendário bate girando | Impacto |
-| 30,1 s ao fim | "Comenta eu quero, ou chama no WhatsApp." | "COMENTA" + bolha digitando "EU QUERO", botão "CHAMA NO WHATSAPP →", logo, @, aviso do cartão | Digitação, botão pulsa | Batida abafada, hit final |
+No 9:16, texto, preço, logo e CTA ficam fora dos 14% de cima, dos 35% de baixo e de 108 px de cada lado. No 4:5, ficam a ~70 px das bordas. Veja o README.
 
-Barra de progresso limão no topo o tempo todo (retenção).
+## Reels principal · "Você tá perdendo cliente" (~36 s, v3)
 
-## Reels "Últimos dias" (~15 s)
-
-| Tempo | Narração | Tela |
+| Narração | Tela | Efeito / som |
 |---|---|---|
-| 0 a 1,4 s | "Última chamada!" | Tela pisca limão 3x, "ÚLTIMA **CHAMADA!**" |
-| 1,4 a 4,7 s | "A Black November da Área 45 acaba dia trinta." | "ACABA DIA **30/11**" + contador 00 dias 23 h seg correndo |
-| 4,7 a 10,4 s | "Identidade visual completa, do logo ao cartão de visita, por 499 reais." | Logo, "IDENTIDADE VISUAL **COMPLETA**", chips dos 7 itens em cascata, R$ 499 no drop |
-| 10,4 a 12,6 s | "Depois disso, volta pro preço normal." | "VOLTA PRO PREÇO **NORMAL.**" + barra de tempo esvaziando |
-| 12,6 s ao fim | "Corre e comenta eu quero!" | "**CORRE!**" + bolha "COMENTA “EU QUERO”" + logo |
+| (frame 0) Você tá perdendo cliente... | VOCÊ TÁ **PERDENDO** CLIENTE já na tela; contador "clientes este mês" caindo de 48 com "−1" | boom, RGB split, tremor, fundo com brilho vermelho |
+| e nem sabe por quê. | E NEM SABE **POR QUÊ.** | glitch em fatias, flash |
+| Olha essa marca. | zoom-punch na marca improvisada "Loja da Ju ★" | whoosh, beat abafado |
+| Logo torto, cada post de um jeito, cor pra todo lado. | etiquetas ✕ batendo em cada problema | tick em cada etiqueta |
+| Parece amador. E ninguém compra de quem parece amador. | carimbo **AMADOR.**, marca fica cinza; NINGUÉM COMPRA DE QUEM PARECE AMADOR | boom + glitch, segundo impacto em "amador" |
+| Agora olha ela profissional. | scanner limão: ANTES → DEPOIS (marca JU com paleta, tipos e posts padronizados); **PROFISSIONAL.** | riser → drop: beat volta, flash, vazamento de luz |
+| Essa virada sai por R$ 499, na Black November da Área 45. | contador trava em **R$ 499,00** na palavra "nove"; BLACK NOVEMBER; logo | chicote, riser, boom |
+| Você leva o logo, ... e a arte do seu cartão de visita. | mockup 3D de cada entrega + checklist marcado na palavra | tick por item |
+| Mas é só até trinta de novembro. | tela limão; folha do calendário cai no **30**; DEPOIS ACABOU. | boom |
+| Comenta eu quero, que a gente te chama no direct. | COMENTA + bolha digitando EU QUERO + NO **DIRECT** + logo e @ | wipe da base, beat abafado no fim |
+
+## Reels "Últimos dias" (~19 s, v3)
+
+| Narração | Tela | Efeito / som |
+|---|---|---|
+| Últimos dias! | tela pisca limão, ÚLTIMOS **DIAS!** já no frame 0 | boom, glitch, RGB split |
+| A Black November da Área 45 termina dia trinta. | TERMINA DIA **30/11** + contagem regressiva | whoosh, boom no "trinta" |
+| Logo, manual, paleta, tipografia, destaques e cartão de visita. | logo, IDENTIDADE VISUAL **COMPLETA**, chip de cada entrega na palavra | tick por item, beat em build |
+| A identidade completa por R$ 499. | A IDENTIDADE **COMPLETA** POR → **R$ 499,00** | riser → drop, vazamento de luz |
+| Passou do dia trinta, acabou. | PASSOU DO DIA 30, **ACABOU.** + barra esvaziando | beat abafado, glitch |
+| Comenta eu quero e garante a sua. | COMENTA + bolha "EU QUERO" + E **GARANTE** A SUA + logo | beat volta |

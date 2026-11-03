@@ -1,41 +1,41 @@
 {
- "duracao": 15.399,
+ "duracao": 18.718,
  "frases": [
   {
    "id": "hook1",
-   "fala": "Última chamada!",
-   "ini": 0.25,
-   "fim": 1.208
+   "fala": "Últimos dias!",
+   "ini": 0.12,
+   "fim": 1.272
   },
   {
    "id": "hook2",
-   "fala": "A Black November da Área quarenta e cinco acaba dia trinta.",
-   "ini": 1.358,
-   "fim": 4.422
+   "fala": "A Black November da Área quarenta e cinco termina dia trinta.",
+   "ini": 1.472,
+   "fim": 4.928
   },
   {
    "id": "oferta1",
-   "fala": "Identidade visual completa, do logo ao cartão de visita,",
-   "ini": 4.722,
-   "fim": 7.762
+   "fala": "Logo, manual, paleta, tipografia, destaques e cartão de visita.",
+   "ini": 5.228,
+   "fim": 8.876
   },
   {
    "id": "oferta2",
-   "fala": "por quatrocentos e noventa e nove reais.",
-   "ini": 7.812,
-   "fim": 10.147
+   "fala": "A identidade completa por quatrocentos e noventa e nove reais.",
+   "ini": 9.026,
+   "fim": 12.887
   },
   {
    "id": "depois",
-   "fala": "Depois disso, volta pro preço normal.",
-   "ini": 10.447,
-   "fim": 12.442
+   "fala": "Passou do dia trinta, acabou.",
+   "ini": 13.187,
+   "fim": 15.065
   },
   {
    "id": "cta",
-   "fala": "Corre e comenta eu quero!",
-   "ini": 12.642,
-   "fim": 13.999
+   "fala": "Comenta eu quero e garante a sua.",
+   "ini": 15.315,
+   "fim": 17.318
   }
  ]
 }
